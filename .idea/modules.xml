@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/nrwDatenStrukturenTests.iml" filepath="$PROJECT_DIR$/nrwDatenStrukturenTests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/nrwDatenStrukturenTests.iml" filepath="$PROJECT_DIR$/.idea/modules/nrwDatenStrukturenTests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/nrwDatenStrukturenTests_main.iml" filepath="$PROJECT_DIR$/.idea/modules/nrwDatenStrukturenTests_main.iml" group="nrwDatenStrukturenTests" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/nrwDatenStrukturenTests_test.iml" filepath="$PROJECT_DIR$/.idea/modules/nrwDatenStrukturenTests_test.iml" group="nrwDatenStrukturenTests" />
     </modules>
   </component>
 </project>
