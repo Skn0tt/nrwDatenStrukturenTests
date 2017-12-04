@@ -20,7 +20,7 @@ public class QueueTest {
   }
 
   @Test
-  void testEnuqeue3() {
+  void testEnqueue3() {
     Queue<Integer> queue = new Queue<>();
 
     for (int i = 0; i < 100; i++) queue.enqueue(i);
