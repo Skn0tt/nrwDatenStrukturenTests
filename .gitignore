@@ -88,3 +88,10 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+src/main/java/**
+
+src/main/java/Queue.java
+src/main/java/Stack.java
+
+input
+!input/README.md
