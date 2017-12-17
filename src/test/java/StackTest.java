@@ -3,30 +3,30 @@ import static org.fest.assertions.api.Assertions.assertThat;
 
 public class StackTest {
   /**
-   * Checks push()
+   * push() valid value
    */
   @Test
-  public void testPush1() {
+  public void testPush() {
     Stack<String> stack = new Stack<>();
 
     stack.push("100");
   }
 
   /**
-   * Checks massive push()
+   * push() a lot of valid values
    */
   @Test
-  public void testPush2() {
+  public void testPushMassive() {
     Stack<Integer> stack = new Stack<>();
 
     for (int i = 0; i < 1000000; i++) stack.push(i);
   }
 
   /**
-   * Checks push() null
+   * push() invalid value
    */
   @Test
-  public void testPush3() {
+  public void testPushNull() {
     Stack<String> stack = new Stack<>();
 
     stack.push("1");
@@ -36,10 +36,10 @@ public class StackTest {
   }
 
   /**
-   * Checks pop()
+   * pop() on filled Stack
    */
   @Test
-  public void testPop1() {
+  public void testPopFilledStack() {
     Stack<String> stack = new Stack<>();
 
     stack.push("1");
@@ -51,20 +51,20 @@ public class StackTest {
   }
 
   /**
-   * Checks pop() of empty Stack
+   * pop() on empty Stack
    */
   @Test
-  public void testPop2() {
+  public void testPopEmptyStack() {
     Stack<Integer> stack = new Stack<>();
 
     stack.pop();
   }
 
   /**
-   * Checks massive pop()
+   * pop() massive
    */
   @Test
-  public void testPop3() {
+  public void testPopMassive() {
     Stack<String> stack = new Stack<>();
 
     for (int i = 0; i <= 100000; i++) stack.push("" + i);
@@ -76,10 +76,10 @@ public class StackTest {
   }
 
   /**
-   * Checks top()
+   * top() on single value Stack
    */
   @Test
-  public void testTop1() {
+  public void testTopSingleValue() {
     Stack<String> stack = new Stack<>();
 
     stack.push("1");
@@ -88,33 +88,47 @@ public class StackTest {
   }
 
   /**
-   * Checks top() on empty Stack
+   * top() on Stack
    */
   @Test
-  public void testTop2() {
+  public void testTop() {
+    Stack<String> stack = new Stack<>();
+
+    stack.push("1");
+    stack.push("2");
+
+    assertThat(stack.top()).isEqualTo("2");
+  }
+
+  /**
+   * top() on empty Stack
+   */
+  @Test
+  public void testTopEmpty() {
     Stack<String> stack = new Stack<>();
 
     assertThat(stack.top()).isNull();
   }
 
   /**
-   * Checks isEmpty() on empty Stack
+   * isEmpty() on empty Stack
    */
   @Test
-  public void testIsEmpty1() {
+  public void testIsEmptyEmptyStack() {
     Stack<String> stack = new Stack<>();
 
     assertThat(stack.isEmpty()).isTrue();
   }
 
   /**
-   * Checks isEmpty() on non-empty Stack
+   * isEmpty() on non-empty Stack
    */
   @Test
-  public void testIsEmpty2() {
+  public void testIsEmpty() {
     Stack<String> stack = new Stack<>();
     stack.push("Test");
 
     assertThat(stack.isEmpty()).isFalse();
   }
+
 }

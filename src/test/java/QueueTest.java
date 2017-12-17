@@ -2,8 +2,26 @@ import org.testng.annotations.Test;
 import static org.fest.assertions.api.Assertions.assertThat;
 
 public class QueueTest {
+
+  /**
+   * enqueue() on filled Stack
+   */
   @Test
-  void testEnqueue1() {
+  void testEnqueue() {
+    Queue<String> queue = new Queue<>();
+
+    queue.enqueue("Hallo");
+    queue.enqueue("Test");
+    queue.enqueue("Queue");
+
+    assertThat(queue.front()).isEqualTo("Hallo");
+  }
+
+  /**
+   * enqueue() null on filled Stack
+   */
+  @Test
+  void testEnqueueNull() {
     Queue<String> queue = new Queue<>();
 
     queue.enqueue("Hallo");
@@ -12,20 +30,50 @@ public class QueueTest {
     assertThat(queue.front()).isEqualTo("Hallo");
   }
 
+  /**
+   * enqueue() null on empty Stack
+   */
   @Test
-  void testEnqueue2() {
+  void testEnqueueNullOnEmptyStack() {
+    Queue<String> queue = new Queue<>();
+
+    queue.enqueue(null);
+
+    assertThat(queue.front()).isNull();
+  }
+
+  /**
+   * enqueue() on empty Stack
+   */
+  @Test
+  void testEnqueueEmptyStack() {
+    Queue<String> queue = new Queue<>();
+
+    queue.enqueue("Hallo");
+
+    assertThat(queue.front()).isEqualTo("Hallo");
+  }
+
+  /**
+   * enqueue() massive
+   */
+  @Test
+  void testEnqueueMassive() {
     Queue<Integer> queue = new Queue<>();
 
-    for (int i = 0; i < 100; i++) queue.enqueue(i);
+    for (int i = 0; i < 10000; i++) queue.enqueue(i);
 
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 10000; i++) {
       assertThat(queue.front()).isEqualTo(i);
       queue.dequeue();
     }
   }
 
+  /**
+   * dequeue()
+   */
   @Test
-  void testDequeue1() {
+  void testDequeueMassive() {
     Queue<Integer> queue = new Queue<>();
 
     for (int i = 0; i < 100; i++) queue.enqueue(i);
@@ -37,31 +85,43 @@ public class QueueTest {
     assertThat(queue.isEmpty()).isTrue();
   }
 
+  /**
+   * isEmpty()
+   */
   @Test
-  void testIsEmpty1() {
-    Queue<Integer> queue = new Queue<>();
-    assertThat(queue.isEmpty()).isTrue();
-  }
-
-  @Test
-  void testIsEmpty2() {
+  void testIsEmpty() {
     Queue<Integer> queue = new Queue<>();
     queue.enqueue(1);
     assertThat(queue.isEmpty()).isFalse();
   }
 
+  /**
+   * isEmpty() on empty queue
+   */
   @Test
-  void testFront1() {
+  void testIsEmptyOnEmpty() {
     Queue<Integer> queue = new Queue<>();
-
-    assertThat(queue.front()).isNull();
+    assertThat(queue.isEmpty()).isTrue();
   }
 
+  /**
+   * front()
+   */
   @Test
-  void testFront2() {
+  void testFront() {
     Queue<Integer> queue = new Queue<>();
     queue.enqueue(1);
 
     assertThat(queue.front()).isEqualTo(1);
+  }
+
+  /**
+   * front() on empty queue
+   */
+  @Test
+  void testFrontOnEmpty() {
+    Queue<Integer> queue = new Queue<>();
+
+    assertThat(queue.front()).isNull();
   }
 }
