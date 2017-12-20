@@ -45,8 +45,10 @@ task showReport(type:Exec) {
     if (Os.isFamily(Os.FAMILY_WINDOWS)) {
         //on windows:
         commandLine 'cmd', '/c', 'start index.html'
-    } else {
+    } else if (Os.isFamily(Os.FAMILY_MAC)) {
         commandLine 'sh', '-c', 'open index.html'
+    } else {
+        commandLine 'sh', '-c', 'xdg-open index.html'
     }
 }
 
